@@ -16,7 +16,7 @@ public class WeatherControllerTest {
 
     @BeforeClass
     public static void setUp() {
-        // Initializing common objects and data
+       
         wController = WeatherController.getInstance();
         nHours = wController.getTotalHours();
         temperatureValues = new double[nHours];
@@ -27,7 +27,7 @@ public class WeatherControllerTest {
 
     @AfterClass
     public static void tearDown() {
-        // Shutting down controller after all tests
+        
         wController.close();
     }
 
@@ -50,15 +50,15 @@ public class WeatherControllerTest {
          */
         System.out.println("+++ testTemperaturePersist +++");
 
-        // Mock the current time for testing
+        
         SimpleDateFormat dateFormat = new SimpleDateFormat("H:m:s");
         Date mockNow = new Date();
         String mockNowString = dateFormat.format(mockNow);
 
-        // Call the persistence method
+        
         String persistTime = wController.persistTemperature(10, 19.5);
 
-        // Verify the persistence time matches the mock time
+        
         Assert.assertEquals(mockNowString, persistTime);
     }
 }
